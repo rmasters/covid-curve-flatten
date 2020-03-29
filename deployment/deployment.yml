@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: rmasters/covid-curve-flatten:latest
+          image: rmasters/covid-curve-flatten:2
           ports:
             - containerPort: 8000
               name: http
