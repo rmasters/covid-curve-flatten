@@ -1,5 +1,11 @@
 import React from "react";
-import Plot from "react-plotly.js";
+
+// Ensure we use the dist version of Plotly, as a 26MB bundle is obscene
+import plotComponentFactory from "react-plotly.js/factory";
+//import Plotly from "plotly.js/lib/index-basic";
+import Plotly from "plotly.js/dist/plotly-basic.min.js";
+const Plot = plotComponentFactory(Plotly); // equiv. to import Plot from "react-plotly.js";
+
 import Loading from "./loading";
 import DelayedRender from "./delay-render";
 import './styles.scss';
