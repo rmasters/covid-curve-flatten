@@ -20,4 +20,4 @@ COPY --from=web /app/dist/ static/
 EXPOSE 8000
 ENV FLASK_APP web:application
 ENV FLASK_ENV production
-CMD ["uwsgi", "--host=0.0.0.0", "--port=8000", "web:application"]
+CMD ["uwsgi", "--http=0.0.0.0:8000", "--manage-script-name", "--mount=/=web:application"]
