@@ -78,7 +78,7 @@ class Countries extends React.Component {
     const data = await resp.json();
 
     const countries = [];
-    for (let [name, timeSeries] of Object.entries(data)) {
+    for (let [name, timeSeries] of Object.entries(data.cases)) {
       const cases = new Map();
       const caseDates = Object.keys(timeSeries).sort((a, b) => a > b ? 1 : -1);
       for (let date of caseDates) {

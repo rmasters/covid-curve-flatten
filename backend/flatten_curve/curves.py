@@ -5,6 +5,8 @@ from typing import Dict
 
 import pandas as pd
 import requests
+import requests_cache
+
 
 def date_fixer(date: str) -> datetime.date:
     """Reformats hard-to-use %m/%d/%y (with single digit days/months) to %Y/%m/%d"""
@@ -36,9 +38,3 @@ def get_time_series_data() -> pd.DataFrame:
 def get_critical_care_beds_data():
     url = "https://dw.euro.who.int/api/v3/export/download/1ae5608724ab40fbab3804a3b8b5f863"
 
-
-if __name__ == "__main__":
-    data = get_time_series_data()
-    print(data.to_json(orient="index", date_format="iso"))
-
-    

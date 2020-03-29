@@ -1,0 +1,29 @@
+version: '3.4'
+services:
+  web:
+    build:
+      context: .
+      target: web
+    command: npm run start
+    ports:
+      - '8081:8081'
+    volumes:
+      - './web:/app'
+      - '/app/node_modules'  # Don't sync node_modules as node-sass will have macos bindings
+      - 'web_dist:/app/dist' # Share dist/ with backend
+
+  backend:
+    build:
+      context: .
+      target: server
+    command: flask run --host=0.0.0.0 --port=8000
+    environment:
+      FLASK_ENV: development
+    ports:
+      - '8000:8000'
+    volumes:
+      - './backend:/app'
+      - 'web_dist:/app/static'
+
+volumes:
+  web_dist: ~

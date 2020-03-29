@@ -30,5 +30,8 @@ module.exports = {
     splitChunks: {
       chunks: 'all'
     }
+  },
+  devServer: {
+    writeToDisk: true
   }
 };

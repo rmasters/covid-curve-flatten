@@ -1,3 +1,4 @@
-dist/
-node_modules/
+web/dist/
+web/node_modules/
 cases.json
+__pycache__/
