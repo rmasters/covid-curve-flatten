@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: covidcurves
+spec:
+  secretName: covidcurves-tls
+  dnsNames:
+    - covidcurves.rossmasters.com
+  issuerRef:
+    kind: ClusterIssuer
+    name: cloudflare

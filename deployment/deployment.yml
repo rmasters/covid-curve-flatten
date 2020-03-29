@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: covidcurves-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: covidcurves
+  template:
+    metadata:
+      name: covidcurves-web
+      labels:
+        app: covidcurves
+    spec:
+      containers:
+        - name: web
+          image: rmasters/covid-curve-flatten:latest
+          ports:
+            - containerPort: 8000
+              name: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
