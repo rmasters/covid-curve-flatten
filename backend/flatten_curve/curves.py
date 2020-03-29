@@ -7,6 +7,9 @@ import pandas as pd
 import requests
 import requests_cache
 
+# Cache all HTTP requests hourly
+requests_cache.install_cache('http_cache', expire_after=3600)
+
 
 def date_fixer(date: str) -> datetime.date:
     """Reformats hard-to-use %m/%d/%y (with single digit days/months) to %Y/%m/%d"""
