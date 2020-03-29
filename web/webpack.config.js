@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -30,7 +31,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({template: path.resolve(__dirname, 'src/template.ejs'), title: "Who's Flattening the Curve?"})
+    new HtmlWebpackPlugin({template: path.resolve(__dirname, 'src/template.ejs'), title: "Who's Flattening the Curve?"}),
+    new BundleAnalyzerPlugin({analyzerMode: 'static', openAnalyzer: false})
   ],
   devtool: "eval-source-map",
   optimization: {
